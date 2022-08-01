@@ -5,7 +5,7 @@ import schedule
 import time
 import sys
 
-every = "01:00"
+every = "15:22"
 steps = 80000
 distance = 50000
 date = datetime.today().strftime('%Y-%m-%d')
