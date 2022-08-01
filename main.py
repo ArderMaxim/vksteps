@@ -4,6 +4,7 @@ from datetime import datetime
 import schedule
 import time
 
+every = "01:00"
 steps = 80000
 distance = 50000
 date = datetime.today().strftime('%Y-%m-%d')
@@ -13,7 +14,8 @@ user_agent = 'VKAndroidApp/7.7-10445 (Android 11; SDK 30; arm64-v8a; Xiaomi M200
 def script():
 	print(request.urlopen(request.Request('https://api.vk.com/method/vkRun.setSteps?steps='+str(steps)+'&distance='+str(distance)+'&date='+date+'&access_token='+access_token+'&v=5.131', headers={'User-Agent': user_agent})).read().decode('utf-8'))
 
-schedule.every().day.at("01:00").do(job)
+schedule.every().day.at(every).do(job)
+print("Каждый день в "+every+" я буду накручивать "+str(steps) "("+str(distance)+" метров)")
 
 while True:
     schedule.run_pending()
