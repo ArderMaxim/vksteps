@@ -3,6 +3,7 @@ from datetime import datetime
 
 import schedule
 import time
+import sys
 
 every = "01:00"
 steps = 80000
@@ -16,6 +17,7 @@ def script():
 
 schedule.every().day.at(every).do(script)
 print("Каждый день в "+every+" я буду накручивать "+str(steps)+" ("+str(distance)+" метров)")
+sys.stdout.flush()
 
 while True:
     schedule.run_pending()
