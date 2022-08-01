@@ -14,8 +14,8 @@ user_agent = 'VKAndroidApp/7.7-10445 (Android 11; SDK 30; arm64-v8a; Xiaomi M200
 def script():
 	print(request.urlopen(request.Request('https://api.vk.com/method/vkRun.setSteps?steps='+str(steps)+'&distance='+str(distance)+'&date='+date+'&access_token='+access_token+'&v=5.131', headers={'User-Agent': user_agent})).read().decode('utf-8'))
 
-schedule.every().day.at(every).do(job)
-print("Каждый день в "+every+" я буду накручивать "+str(steps) "("+str(distance)+" метров)")
+schedule.every().day.at(every).do(script)
+print("Каждый день в "+every+" я буду накручивать "+str(steps)+" ("+str(distance)+" метров)")
 
 while True:
     schedule.run_pending()
